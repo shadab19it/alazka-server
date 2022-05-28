@@ -17,7 +17,7 @@ router.post("/query-mail", async (req, res) => {
     return res.status(200).json({ success: true, msg: "Your Queries send successfully" });
   } catch (err) {
     console.log(err);
-    return res.status(402).json({ success: false, error: "Something wrong please try again later" });
+    return res.status(402).json({ success: false, error: "Something wents wrong please try again later" });
   }
 });
 
@@ -35,7 +35,7 @@ router.post("/contact-us/mail", async (req, res) => {
   try {
     await sendEmail(smpt_config.auth.user, "Mail for Credit requirment", bodyText);
   } catch (err) {
-    return res.status(402).json({ success: false, error: "Something wrong please try again later" });
+    return res.status(402).json({ success: false, error: "Something wents wrong please try again later" });
   }
 });
 

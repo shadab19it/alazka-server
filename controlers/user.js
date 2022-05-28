@@ -33,7 +33,7 @@ exports.userRegister = async (req, res) => {
       .json({ mailSent: true, msg: `Verification link sent to email ID " ${email} ". Please verify for SignIn.`, email: email });
   } catch (error) {
     console.log(error);
-    return res.status(404).json({ mailSent: false, error: "Something wrong please try again later" });
+    return res.status(404).json({ mailSent: false, error: "Something wents wrong please try again later" });
   }
 };
 
