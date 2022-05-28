@@ -33,6 +33,6 @@ app.use("/send", require("./routes/mailRoute"));
 app.use("/api/apikey", require("./routes/apikey"));
 
 //  Listening Server
-app.listen(config.PORT, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log(`Server Started at ${config.PORT}`);
 });
