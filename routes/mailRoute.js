@@ -16,7 +16,8 @@ router.post("/query-mail", async (req, res) => {
     await sendEmail(smpt_config.auth.user, "Mail for Querie", bodyText);
     return res.status(200).json({ success: true, msg: "Your Queries send successfully" });
   } catch (err) {
-    return res.status(402).json({ success: false, error: "Server error! try again later" });
+    console.log(err);
+    return res.status(402).json({ success: false, error: "Server error try again later" });
   }
 });
 
