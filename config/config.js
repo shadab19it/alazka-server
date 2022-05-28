@@ -20,7 +20,7 @@ let config = {
   JWT_SECRET_KEY: "alazla@12#token",
   JWT_FORGOT_EMAIL_KEY: "alazka-email-token",
   JWT_CONFIRM_EMAIL_KEY: "alazka-email-verify",
-  PORT: 3000,
+  PORT: 3001,
   NODE_ENV: "production",
 };
 let mongo_config = {};
