@@ -35,7 +35,7 @@ if (config.NODE_ENV === "production") {
 // console.log(config.env.NODE_ENV);
 
 const smpt_config = {
-  port: 587,
+  port: 465,
   host: "smtp.gmail.com",
   secure: false,
   auth: {
