@@ -13,7 +13,7 @@ const localMongoDbConfig = {
 };
 
 const mongoDBDockerImg = {
-  mongoURI: process.env.MONGO_URI || "mongodb://159.69.210.83:27017/",
+  mongoURI: process.env.MONGO_URI || "mongodb://95.216.180.10:27017/",
 };
 
 let config = {
