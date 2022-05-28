@@ -28,7 +28,7 @@ let mongo_config = {};
 const auth_email = "alazkaroot361@gmail.com";
 
 if (config.NODE_ENV === "production") {
-  mongo_config = prodmongoconfig;
+  mongo_config = mongoDBDockerImg;
 } else {
   mongo_config = localMongoDbConfig;
 }

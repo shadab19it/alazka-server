@@ -64,3 +64,24 @@ exports.passwordReset = (req, res) => {
     }
   });
 };
+
+exports.resetPasswordByAdmin = (req, res) => {
+  const user_id = req.params["userId"];
+  const { password } = req.body;
+  if (password && user_id) {
+    User.findOneAndUpdate(
+      { _id: user_id },
+      { password: password },
+      { new: true },
+
+      (err, user) => {
+        if (err) {
+          return res.status(404).json({ msg: "failed to reset user password! Please try again", success: false });
+        }
+        return res.status(200).json({ msg: "Password reset successfully", success: true });
+      }
+    );
+  } else {
+    res.status(404).json({ msg: "Credentials required", success: false });
+  }
+};

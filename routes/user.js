@@ -12,6 +12,7 @@ const {
   getCreditById,
   getUserAvatar,
   verifyEmailRegister,
+  addNewUser,
 } = require("../controlers/user");
 
 // SignUp Routes
@@ -23,6 +24,16 @@ router.post(
     check("password", "Password must be at least 6 chars long").isLength({ min: 6 }),
   ],
   userRegister
+);
+
+router.post(
+  "/add",
+  [
+    check("username").isLength({ min: 5 }).withMessage("username must be at least 5 chars long"),
+    check("email").isEmail().withMessage("email is required"),
+    check("password", "Password must be at least 6 chars long").isLength({ min: 6 }),
+  ],
+  addNewUser
 );
 
 // auth Routes

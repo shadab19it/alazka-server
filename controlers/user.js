@@ -37,6 +37,27 @@ exports.userRegister = async (req, res) => {
   }
 };
 
+exports.addNewUser = async (req, res) => {
+  const exErrors = validationResult(req);
+  if (!exErrors.isEmpty()) {
+    return res.status(404).json({ msg: exErrors.array()[0].msg, input: exErrors.array()[0].param });
+  }
+
+  const { username, email, password, leftCredit, totalCredit, isActive, role } = req.body;
+
+  try {
+    const alreadyUser = await User.findOne({ email: email });
+    if (alreadyUser) return res.status(404).json({ msg: `This ${email} is already exist.` });
+
+    let newuser = new User({ username, email, password, leftCredit, totalCredit, isActive, role });
+    newuser = await newuser.save();
+
+    return res.status(200).json({ success: true, msg: `New user added with ${email}.` });
+  } catch (error) {
+    return res.status(404).json({ msg: "Something wents wrong please try again later" });
+  }
+};
+
 // Signin Controller
 exports.signin = (req, res) => {
   const { email, password, isSocialLogin, username } = req.body;
